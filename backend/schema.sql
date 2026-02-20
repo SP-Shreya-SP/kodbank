@@ -1,5 +1,4 @@
-CREATE DATABASE IF NOT EXISTS defaultdb;
-USE defaultdb;
+-- Database schema for Kodbank
 
 -- Reset Tables to ensure new schema is applied
 DROP TABLE IF EXISTS Transactions;

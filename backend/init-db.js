@@ -9,8 +9,9 @@ async function initializeDatabase() {
         port: process.env.DB_PORT,
         user: process.env.DB_USER,
         password: process.env.DB_PASS,
+        database: process.env.DB_NAME || 'defaultdb',
         ssl: process.env.SSL === 'true' ? { rejectUnauthorized: false } : null,
-        multipleStatements: true // Essential for running the full schema.sql
+        multipleStatements: true
     };
 
     try {

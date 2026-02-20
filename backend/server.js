@@ -87,8 +87,12 @@ app.post('/api/register', async (req, res) => {
 
         res.status(201).json({ message: 'User registered successfully', userId });
     } catch (err) {
-        console.error('Registration Error:', err.message);
-        res.status(500).json({ message: 'Error registering user', error: err.message });
+        console.error('Registration Error Details:', err);
+        res.status(500).json({
+            message: 'Error registering user',
+            error: err.message,
+            code: err.code // Include MySQL error code for easier debugging
+        });
     }
 });
 
