@@ -122,10 +122,11 @@ app.post('/api/login', async (req, res) => {
             [token, user.uid, expiry]
         );
 
+        const isProduction = process.env.NODE_ENV === 'production';
         res.cookie('token', token, {
             httpOnly: true,
-            secure: process.env.NODE_ENV === 'production',
-            sameSite: 'lax',
+            secure: isProduction,
+            sameSite: isProduction ? 'none' : 'lax',
             maxAge: 3600000
         }).status(200).json({
             message: 'Login successful',
@@ -240,7 +241,12 @@ app.get('/api/user-info', verifyToken, async (req, res) => {
 });
 
 app.post('/api/logout', (req, res) => {
-    res.clearCookie('token').json({ message: 'Logged out' });
+    const isProduction = process.env.NODE_ENV === 'production';
+    res.clearCookie('token', {
+        httpOnly: true,
+        secure: isProduction,
+        sameSite: isProduction ? 'none' : 'lax'
+    }).json({ message: 'Logged out' });
 });
 
 app.get('/', (req, res) => {
