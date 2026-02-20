@@ -49,6 +49,28 @@ npm run dev
 
 ---
 
+## ☁️ Vercel Deployment (100% Free)
+
+To deploy Kodbank to the cloud, follow these steps in the [Vercel](https://vercel.com) dashboard:
+
+### 1. Deploy the Backend (API)
+1. In Vercel, click **"Add New"** > **"Project"** and import the GitHub repo.
+2. **Project Name**: `kodbank-api`
+3. **Root Directory**: Select the **`backend`** folder.
+4. **Environment Variables**: Add all variables from your `backend/.env` (e.g., `DB_HOST`, `DB_PASS`, `JWT_SECRET`).
+5. Set `CLIENT_URL` to your future frontend URL (e.g., `https://kodbank-frontend.vercel.app`).
+6. Click **Deploy**.
+
+### 2. Deploy the Frontend (UI)
+1. Import the same repo again.
+2. **Project Name**: `kodbank-frontend`
+3. **Framework Preset**: **Vite**.
+4. **Root Directory**: Select the **`frontend`** folder.
+5. **Environment Variable**: Add `VITE_API_URL` and paste your deployed **Backend URL**.
+6. Click **Deploy**.
+
+---
+
 ## 📸 Usage
 1. Open `http://localhost:5173`.
 2. **Open Account**: Register with your details (UID is generated automatically).
