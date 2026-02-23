@@ -12,7 +12,8 @@ import {
     ChevronRight,
     TrendingUp,
     TrendingDown,
-    Activity
+    Activity,
+    Sparkles
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
@@ -261,6 +262,16 @@ const Dashboard = () => {
                 <SidebarItem icon={<MinusCircle size={20} />} label="Withdraw" active={activeTab === 'withdraw'} onClick={() => setActiveTab('withdraw')} />
                 <SidebarItem icon={<History size={20} />} label="Statement" active={activeTab === 'transactions'} onClick={() => setActiveTab('transactions')} />
                 <SidebarItem icon={<User size={20} />} label="Account Info" active={activeTab === 'profile'} onClick={() => setActiveTab('profile')} />
+                <a
+                    href="https://mychat-app-three.vercel.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="sidebar-item"
+                    style={{ color: '#fbbf24', textDecoration: 'none' }}
+                >
+                    <Sparkles size={20} />
+                    <span>AI Assistant</span>
+                </a>
                 <div style={{ marginTop: 'auto', paddingTop: '2rem' }}>
                     <SidebarItem icon={<LogOut size={20} />} label="Logout" danger onClick={handleLogout} />
                 </div>
